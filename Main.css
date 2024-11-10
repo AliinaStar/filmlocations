@@ -1,0 +1,560 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    padding-bottom: 2rem;
+}
+
+.header {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    font-size: 24px;
+}
+
+.header .left-links,
+.header .right-links {
+    display: flex;
+    align-items: center;
+}
+
+.profile-link {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+.profile-link span {
+    margin-right: 0.5rem; /* Відступ між текстом і іконкою */
+}
+
+.profile-icon {
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    margin-right: 2rem;
+}
+
+.header .profile-icon {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: normal;
+    font-family: Inter, sans-serif;
+}
+
+.group-section h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-family: Inter, sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-links a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: #333;
+}
+/* Стилі для головної сторінки */
+.search-container {
+    padding: 10rem;
+    text-align: center;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 600px;
+    height: 40px;
+    padding: 0.5rem;
+    margin: 1rem auto;
+    border: 1px solid #ccc;
+}
+
+.section-title {
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.movie-card .movie-title {
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-family: Inter, sans-serif;
+}
+
+.location-card .location-title{
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-family: Inter, sans-serif;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+}
+
+.movie-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.movie-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.location-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.location-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.location-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Стилі для сторінки фільму */
+.movie-title {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.group-section {
+    padding: 8rem;
+}
+
+.group-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.image-gallery {
+    background-color: #808080;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.gallery-image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.movie-details {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.movie-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.movie-content {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.movie-poster {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.main-poster {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.imdb-link {
+    color: #000;
+    text-decoration: none;
+    padding: 0.5rem 0;
+}
+
+.movie-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-section {
+    margin-bottom: 2rem;
+}
+
+.info-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.description {
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+.filming-locations {
+    margin-top: 1rem;
+}
+
+.location-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.location-details h3 {
+    margin: 0 0 0.5rem 0;
+}
+
+.location-details p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+.location-details {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Стилі для сторінки локації*/
+.location-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.location-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.location-main-info {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.main-image-container {
+    flex: 0 0 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.main-location-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.location-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.rating-value {
+    font-weight: bold;
+}
+
+.favorite-btn {
+    padding: 0.8rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.favorite-btn:hover {
+    background-color: #333;
+}
+
+.location-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-section {
+    margin-bottom: 2rem;
+}
+
+.info-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.description {
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+.location-address {
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.map-link {
+    color: #000;
+    text-decoration: none;
+}
+
+.location-gallery h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+.related-movies h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.movies-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.movie-item a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.movie-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    transition: transform 0.2s;
+}
+
+.movie-item:hover img {
+    transform: translateY(-5px);
+}
+
+.movie-info h3 {
+    margin: 0.5rem 0;
+}
+
+.movie-rating {
+    color: #666;
+}
+
+/* Стилі для профілю авторизованого користувача */
+.profile-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.avatar-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-details h2 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.user-details .email {
+    color: #666;
+}
+
+/* Стилі для форм авторизації */
+
+.auth-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #eee;
+}
+
+.tab-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #666;
+}
+
+.tab-btn.active {
+    color: #333;
+    border-bottom: 2px solid #333;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.auth-form input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    padding: 0.8rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.submit-btn:hover {
+    background-color: #444;
+}
+
+/* Клас для приховання контейнерів */
+.hidden {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .image-gallery {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .location-main-info {
+        flex-direction: column;
+    }
+
+    .main-image-container {
+        flex: 0 0 auto;
+    }
+}
