@@ -22,7 +22,7 @@ missing_vars = [var for var in required_env_vars if not os.getenv(var)]
 if missing_vars:
     raise ValueError(f"Missing required environment variables: {', '.join(missing_vars)}")
 
-#connection_string = f'mssql+pyodbc://{DB_USER}:{DB_PASS}@{DB_HOST}/{DB_NAME}?driver=SQL+Server'
+# Ensure the driver name matches the installed ODBC driver
 connection_string = (
     f"DRIVER={{ODBC Driver 17 for SQL Server}};"
     f"SERVER={DB_HOST};"
@@ -30,7 +30,6 @@ connection_string = (
     f"UID={DB_USER};"
     f"PWD={DB_PASS};"
 )
-
 
 def get_engine():
     try:
