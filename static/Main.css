@@ -105,15 +105,23 @@ nav {
 
 .movies-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Increased min-width for larger cards */
+    justify-content: space-between; /* Ensure even distribution */
+    gap: 2rem; /* Reduced gap for less spacing */
     padding: 1rem;
+}
+
+.movies-grid p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    padding: 2rem;
 }
 
 .location-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Increased min-width for larger cards */
+    gap: 2rem; /* Reduced gap for less spacing */
     padding: 1rem;
 }
 
@@ -123,18 +131,19 @@ nav {
     align-items: center;
     cursor: pointer;
     transition: transform 0.2s;
+    padding: 1rem; /* Reduced padding for smaller cards */
+    background-color: #f9f9f9; /* Optional: Add background color */
+    border-radius: 10px; /* Optional: Add border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow */
+    height: auto; /* Adjust height to fit content */
 }
 
 .movie-card .movie-title {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Reduced font size */
     font-weight: normal;
     font-family: Inter, sans-serif;
-}
-
-.location-card .location-title{
-    font-size: 1.5rem;
-    font-weight: normal;
-    font-family: Inter, sans-serif;
+    margin-top: 0.75rem; /* Reduced margin-top for spacing */
+    text-align: center; /* Center align the title */
 }
 
 .movie-card:hover {
@@ -143,9 +152,9 @@ nav {
 
 .movie-card img {
     width: 100%;
-    max-width: 200px;
+    max-width: 350px; /* Increased max-width for larger images */
     height: auto;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .movie-card a {
@@ -159,13 +168,18 @@ nav {
     align-items: center;
     cursor: pointer;
     transition: transform 0.2s;
+    padding: 1rem; /* Reduced padding for smaller cards */
+    background-color: #f9f9f9; /* Optional: Add background color */
+    border-radius: 10px; /* Optional: Add border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow */
+    height: auto; /* Adjust height to fit content */
 }
 
 .location-card img {
     width: 100%;
-    max-width: 200px;
+    max-width: 350px; /* Increased max-width for larger images */
     height: auto;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .location-card a {
@@ -176,7 +190,6 @@ nav {
 .location-card:hover {
     transform: translateY(-5px);
 }
-
 
 /* Стилі для сторінки фільму */
 .movie-title {
@@ -451,6 +464,10 @@ nav {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Added gap for spacing between elements */
 }
 
 .profile-info {
@@ -482,6 +499,21 @@ nav {
     color: #666;
 }
 
+.logout-btn {
+    margin-top: 2rem; /* Added margin-top for spacing */
+    padding: 0.8rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: #333;
+}
+
 /* Стилі для форм авторизації */
 
 .auth-container {
@@ -495,6 +527,7 @@ nav {
 
 .auth-tabs {
     display: flex;
+    justify-content: space-around;
     margin-bottom: 2rem;
     border-bottom: 2px solid #eee;
 }
@@ -506,6 +539,7 @@ nav {
     cursor: pointer;
     font-size: 1rem;
     color: #666;
+    transition: color 0.2s, border-bottom 0.2s;
 }
 
 .tab-btn.active {
@@ -524,6 +558,11 @@ nav {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.auth-form input:focus {
+    border-color: #333;
 }
 
 .submit-btn {
@@ -534,6 +573,7 @@ nav {
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
+    transition: background-color 0.2s;
 }
 
 .submit-btn:hover {
@@ -543,6 +583,20 @@ nav {
 /* Клас для приховання контейнерів */
 .hidden {
     display: none;
+}
+
+.flashes {
+    list-style-type: none;
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}
+
+.flashes li {
+    margin-bottom: 0.5rem;
 }
 
 @media (min-width: 768px) {

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie.title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Main.css') }}">
+    <script src="{{ url_for('static', filename='conect.js') }}"></script> <!-- Corrected path -->
+</head>
+<body>
+    <header class="header">
+        <div class="left-links">
+            <a href="{{ url_for('home') }}">Головна</a>
+            <a href="{{ url_for('favorites') }}">Вподобані</a>
+        </div>
+        <div class="right-links">
+            <a href="{{ url_for('profile') }}" class="profile-link">
+                <span>Профіль</span>
+                <div class="profile-icon"></div>
+            </a>
+        </div>
+    </header>
+
+    <main class="movie-details">
+        <h1 class="movie-title">{{ movie.title }}</h1>
+        
+        <div class="movie-content">
+            <div class="movie-poster">
+                <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" 
+                    alt="{{ movie.title }}" class="main-poster">
+                <div class="tmdb-rating">TMDb Rating: {{ movie.vote_average }}/10</div>
+            </div>
+            
+            <div class="movie-info">
+                <div class="info-section">
+                    <h2>Опис фільму</h2>
+                    <div class="description">
+                        {{ movie.overview or 'Опис відсутній' }}
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2>Де знімався</h2>
+                    <div class="filming-locations">
+                        {% if locations %}
+                            <div class="location-info">
+                                {% for location in locations %}
+                                <div class="location-card">
+                                    <img src="https://via.placeholder.com/200x150" alt="{{ location.name }}">
+                                    <div class="location-details">
+                                        <h3>{{ location.name }}</h3>
+                                        <p class="location-address">{{ location.address }}</p>
+                                        <p class="location-rating">Рейтинг: {{ location.rating }}</p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="no-locations">
+                                <p>На жаль, інформація про місця зйомок поки відсутня.</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

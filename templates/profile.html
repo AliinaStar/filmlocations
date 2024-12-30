@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профіль</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Main.css') }}">
+
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <header class="header">
+        <div class="left-links">
+            <a href="{{ url_for('home') }}">Головна</a>
+            <a href="{{ url_for('favorites') }}">Вподобані</a>
+        </div>
+        <div class="right-links">
+            <a href="{{ url_for('profile') }}" class="profile-link">
+                <span>Профіль</span>
+                <div class="profile-icon"></div>
+            </a>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Контейнер для авторизованого користувача -->
+        {% if session.get('user_id') %}
+            <div class="profile-container">
+                <div class="profile-info">
+                    <div class="avatar-container">
+                        <img src="{{ url_for('static', filename='avatar.png') }}" alt="" class="avatar"> <!-- Removed "Avatar" alt text -->
+                    </div>
+                    <div class="user-details">
+                        <h2>{{ user.username }}</h2>
+                        <p class="email">{{ user.email }}</p>
+                        <p>Role: {{ user.role }}</p>
+                    </div>
+                </div>
+                <a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a> <!-- Updated class -->
+            </div>
+        {% else %}
+
+        <!-- Контейнер для форми реєстрації -->
+        <div id="registerForm" class="{{ 'hidden' if form_type != 'register' else '' }}">
+            <div class="auth-tabs">
+                <button class="tab-btn active" data-tab="register">Реєстрація</button>
+                <button class="tab-btn" data-tab="login">Вхід</button>
+            </div>
+            <form class="auth-form" method="POST" action="{{ url_for('auth.register') }}">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" class="submit-btn">Підтвердити</button>
+            </form>
+        </div>
+
+        <!-- Контейнер для форми входу -->
+        <div id="loginForm" class="{{ 'hidden' if form_type != 'login' else '' }}">
+            <div class="auth-tabs">
+                <button class="tab-btn" data-tab="register">Реєстрація</button>
+                <button class="tab-btn active" data-tab="login">Вхід</button>
+            </div>
+            <form class="auth-form" method="POST" action="{{ url_for('auth.login') }}">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" class="submit-btn">Підтвердити</button>
+            </form>
+        </div>
+    </main>
+    <script>
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tab = btn.dataset.tab;
+                if (tab === 'register') {
+                    document.getElementById('registerForm').classList.remove('hidden');
+                    document.getElementById('loginForm').classList.add('hidden');
+                } else {
+                    document.getElementById('registerForm').classList.add('hidden');
+                    document.getElementById('loginForm').classList.remove('hidden');
+                }
+                
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+    {% endif %}
+</body>
+</html>

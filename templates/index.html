@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Пошук фільмів</title>
-    <link rel="stylesheet" type="text/css" href="Main.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Main.css') }}">
+    <script src="{{ url_for('static', filename='conect.js') }}"></script>
 </head>
 <body>
     <header class="header">
         <div class="left-links">
-            <a href="index.html">Головна</a>
-            <a href="favorites.html">Вподобані</a>
+            <a href="{{ url_for('home') }}">Головна</a>
+            <a href="{{ url_for('favorites') }}">Вподобані</a>
         </div>
         <div class="right-links">
-            <a href="profile.html" class="profile-link">
+            <a href="{{ url_for('profile') }}" class="profile-link">
                 <span>Профіль</span>
                 <div class="profile-icon"></div>
             </a>
@@ -28,36 +29,19 @@
     <section>
         <h1 class="section-title">Популярні фільми</h1>
         <div class="movies-grid">
-            <div class="movie-card">
-                <a href="film-details.html">
-                    <img src="/api/placeholder/200/300" alt="The Witch Revenge">
-                    <div class="movie-title">Назва 1</div>
-                </a>
-            </div>
-            <div class="movie-card">
-                <a href="film-details.html">
-                    <img src="/api/placeholder/200/300" alt="The Witch Revenge">
-                    <div class="movie-title">Назва 1</div>
-                </a>
-            </div>
-            <div class="movie-card">
-                <a href="film-details.html">
-                    <img src="/api/placeholder/200/300" alt="The Witch Revenge">
-                    <div class="movie-title">Назва 1</div>
-                </a>
-            </div>
-            <div class="movie-card">
-                <a href="movie-details.html">
-                    <img src="/api/placeholder/200/300" alt="The Witch Revenge">
-                    <div class="movie-title">Назва 1</div>
-                </a>
-            </div>
-            <div class="movie-card">
-                <a href="film-details.html">
-                    <img src="/api/placeholder/200/300" alt="The Witch Revenge">
-                    <div class="movie-title">Назва 1</div>
-                </a>
-            </div>
+            {% if movies %}
+                {% for movie in movies %}
+                <div class="movie-card">
+                    <a href="{{ url_for('movies.movie_details', movie_id=movie.id) }}">
+                        <img src="https://image.tmdb.org/t/p/w300{{ movie.poster_path }}" 
+                            alt="{{ movie.title }}">
+                        <div class="movie-title">{{ movie.title }}</div>
+                    </a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>Немає доступних фільмів для відображення.</p>
+            {% endif %}
         </div>
     </section>
 
@@ -66,31 +50,31 @@
         <div class="location-grid">
             <div class="location-card">
                 <a href="location-details.html">
-                    <img src="/api/placeholder/200/150" alt="Location">
+                    <img src="https://via.placeholder.com/350x250" alt="Location">
                     <div class="location-title">Назва локації</div>
                 </a>
             </div>
             <div class="location-card">
                 <a href="location-details.html">
-                    <img src="/api/placeholder/200/150" alt="Location">
+                    <img src="https://via.placeholder.com/350x250" alt="Location">
                     <div class="location-title">Назва локації</div>
                 </a>
             </div>
             <div class="location-card">
                 <a href="location-details.html">
-                    <img src="/api/placeholder/200/150" alt="Location">
+                    <img src="https://via.placeholder.com/350x250" alt="Location">
                     <div class="location-title">Назва локації</div>
                 </a>
             </div>
             <div class="location-card">
                 <a href="location-details.html">
-                    <img src="/api/placeholder/200/150" alt="Location">
+                    <img src="https://via.placeholder.com/350x250" alt="Location">
                     <div class="location-title">Назва локації</div>
                 </a>
             </div>
             <div class="location-card">
                 <a href="location-details.html">
-                    <img src="/api/placeholder/200/150" alt="Location">
+                    <img src="https://via.placeholder.com/350x250" alt="Location">
                     <div class="location-title">Назва локації</div>
                 </a>
             </div>

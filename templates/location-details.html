@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Деталі локації</title>
-    <link rel="stylesheet" type="text/css" href="Main.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Main.css') }}">
 </head>
 <body>
     <header class="header">
         <div class="left-links">
-            <a href="index.html">Головна</a>
-            <a href="favorites.html">Вподобані</a>
+            <a href="{{ url_for('home') }}">Головна</a>
+            <a href="{{ url_for('favorites') }}">Вподобані</a>
         </div>
         <div class="right-links">
-            <a href="profile.html">Профіль</a>
-            <div class="profile-icon"></div>
+            <a href="{{ url_for('profile') }}" class="profile-link">
+                <span>Профіль</span>
+                <div class="profile-icon"></div>
+            </a>
         </div>
     </header>
 
