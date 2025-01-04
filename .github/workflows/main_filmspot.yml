@@ -58,12 +58,12 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B94A2DBDB8C44F0D906BAEC82FAB0CFC }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F4C3FC930C8D403DA9C1EDF989180091 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_8C7B34206A0F44869E03BDF350DAC9E0 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'FilmSpot' б
+          app-name: 'FilmSpot'
