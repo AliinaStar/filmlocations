@@ -61,6 +61,21 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Build and Push Docker Image
+        run: |
+          docker build --build-arg DB_HOST=${{ secrets.DB_HOST }} \
+                       --build-arg DB_NAME=${{ secrets.DB_NAME }} \
+                       --build-arg AZURE_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }} \
+                       --build-arg AZURE_CLIENT_SECRET=${{ secrets.AZURE_CLIENT_SECRET }} \
+                       --build-arg AZURE_TENANT_ID=${{ secrets.AZURE_TENANT_ID }} \
+                       -t your-image-name .
+          docker push your-image-name
+
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
