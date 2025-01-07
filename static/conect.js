@@ -4,4 +4,3 @@ fetch('http://localhost:8000/tasks/')
     console.log(data); // Обробка даних
   })
   .catch(error => console.error('Error:', error));
-
